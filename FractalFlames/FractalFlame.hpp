@@ -24,6 +24,12 @@ public:
     enum Axes : char {AXIS_X = 'x', AXIS_Y = 'y'};
     enum CoefNames : char { NAME_A = 'a', NAME_B = 'b', NAME_C = 'c' };
     
+    struct Point
+    {
+        double x;
+        double y;
+    };
+    
     FractalFlame(unsigned outWidth, unsigned outHeight);
     ~FractalFlame();
     
@@ -38,6 +44,8 @@ public:
     bool setColors(const char * pathToFile);
     unsigned * getColors();
     unsigned getColorsCount();
+    
+    Point applyFunctionToPoint(unsigned functionNumber, Point * point);
 };
 
 #endif /* FractalFlame_hpp */

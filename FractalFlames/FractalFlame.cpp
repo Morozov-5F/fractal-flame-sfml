@@ -79,7 +79,7 @@ bool FractalFlame::setCoeficients(const char * pathToFile)
 
 double FractalFlame::getCoefficient(unsigned functionNumber, Axes axis, CoefNames name)
 {
-    if (functionNumber > basisSize)
+    if (functionNumber >= basisSize)
         return NAN;
     
     NULLPTR_CHECK(coef);
@@ -148,3 +148,24 @@ unsigned FractalFlame::getColorsCount()
     return colorsLength;
 }
 
+FractalFlame::Point FractalFlame::applyFunctionToPoint(unsigned functionNumber, Point * point)
+{
+    Point result;
+    if (point == nullptr || functionNumber >= basisSize)
+    {
+        result.x = NAN;
+        result.y = NAN;
+        
+        return result;
+    }
+    
+    result.x = getCoefficient(functionNumber, AXIS_X, NAME_A) * point->x +
+               getCoefficient(functionNumber, AXIS_X, NAME_B) * point->y +
+               getCoefficient(functionNumber, AXIS_X, NAME_C);
+    
+    result.x = getCoefficient(functionNumber, AXIS_Y, NAME_A) * point->x +
+               getCoefficient(functionNumber, AXIS_Y, NAME_B) * point->y +
+               getCoefficient(functionNumber, AXIS_Y, NAME_C);
+    
+    return result;
+}
