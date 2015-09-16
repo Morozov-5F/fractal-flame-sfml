@@ -1,0 +1,262 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D55C59301BAA1BA80027D5F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D55C592F1BAA1BA80027D5F2 /* main.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D55C592C1BAA1BA80027D5F2 /* FractalFlames */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FractalFlames; sourceTree = BUILT_PRODUCTS_DIR; };
+		D55C592F1BAA1BA80027D5F2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D55C59321BAA1BA80027D5F2 /* cute_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cute_image.jpg; sourceTree = "<group>"; };
+		D55C59331BAA1BA80027D5F2 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
+		D55C59341BAA1BA80027D5F2 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
+		D55C59351BAA1BA80027D5F2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D55C592A1BAA1BA80027D5F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D55C59241BAA1BA80027D5F2 = {
+			isa = PBXGroup;
+			children = (
+				D55C592E1BAA1BA80027D5F2 /* FractalFlames */,
+				D55C592D1BAA1BA80027D5F2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D55C592D1BAA1BA80027D5F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D55C592C1BAA1BA80027D5F2 /* FractalFlames */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D55C592E1BAA1BA80027D5F2 /* FractalFlames */ = {
+			isa = PBXGroup;
+			children = (
+				D55C592F1BAA1BA80027D5F2 /* main.cpp */,
+				D55C59311BAA1BA80027D5F2 /* Resources */,
+			);
+			path = FractalFlames;
+			sourceTree = "<group>";
+		};
+		D55C59311BAA1BA80027D5F2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D55C59321BAA1BA80027D5F2 /* cute_image.jpg */,
+				D55C59331BAA1BA80027D5F2 /* nice_music.ogg */,
+				D55C59341BAA1BA80027D5F2 /* sansation.ttf */,
+				D55C59351BAA1BA80027D5F2 /* icon.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D55C592B1BAA1BA80027D5F2 /* FractalFlames */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D55C59381BAA1BA80027D5F2 /* Build configuration list for PBXNativeTarget "FractalFlames" */;
+			buildPhases = (
+				D55C59291BAA1BA80027D5F2 /* Sources */,
+				D55C592A1BAA1BA80027D5F2 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FractalFlames;
+			productName = FractalFlames;
+			productReference = D55C592C1BAA1BA80027D5F2 /* FractalFlames */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D55C59251BAA1BA80027D5F2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Eugene Morozov";
+				TargetAttributes = {
+					D55C592B1BAA1BA80027D5F2 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
+			};
+			buildConfigurationList = D55C59281BAA1BA80027D5F2 /* Build configuration list for PBXProject "FractalFlames" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D55C59241BAA1BA80027D5F2;
+			productRefGroup = D55C592D1BAA1BA80027D5F2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D55C592B1BAA1BA80027D5F2 /* FractalFlames */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D55C59291BAA1BA80027D5F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D55C59301BAA1BA80027D5F2 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D55C59361BAA1BA80027D5F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					x86_64,
+				);
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks/,
+					"$(inherited)",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib/,
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(SFML_SYSTEM)",
+					"$(SFML_WINDOW)",
+					"$(SFML_GRAPHICS)",
+					"$(SFML_AUDIO)",
+					"$(SFML_NETWORK)",
+				);
+				SFML_AUDIO = "$(SFML_LINK_PREFIX) sfml-audio$(SFML_LINK_SUFFIX)";
+				SFML_BINARY_TYPE = FRAMEWORKS;
+				SFML_GRAPHICS = "$(SFML_LINK_PREFIX) sfml-graphics$(SFML_LINK_SUFFIX)";
+				SFML_LINK_DYLIBS_PREFIX = "-l";
+				SFML_LINK_DYLIBS_SUFFIX = "";
+				SFML_LINK_FRAMEWORKS_PREFIX = "-framework";
+				SFML_LINK_FRAMEWORKS_SUFFIX = "";
+				SFML_LINK_PREFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_PREFIX)";
+				SFML_LINK_SUFFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_SUFFIX)";
+				SFML_NETWORK = "$(SFML_LINK_PREFIX) sfml-network$(SFML_LINK_SUFFIX)";
+				SFML_SYSTEM = "$(SFML_LINK_PREFIX) sfml-system$(SFML_LINK_SUFFIX)";
+				SFML_WINDOW = "$(SFML_LINK_PREFIX) sfml-window$(SFML_LINK_SUFFIX)";
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Debug;
+		};
+		D55C59371BAA1BA80027D5F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					x86_64,
+				);
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks/,
+					"$(inherited)",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib/,
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(SFML_SYSTEM)",
+					"$(SFML_WINDOW)",
+					"$(SFML_GRAPHICS)",
+					"$(SFML_AUDIO)",
+					"$(SFML_NETWORK)",
+				);
+				SFML_AUDIO = "$(SFML_LINK_PREFIX) sfml-audio$(SFML_LINK_SUFFIX)";
+				SFML_BINARY_TYPE = FRAMEWORKS;
+				SFML_GRAPHICS = "$(SFML_LINK_PREFIX) sfml-graphics$(SFML_LINK_SUFFIX)";
+				SFML_LINK_DYLIBS_PREFIX = "-l";
+				SFML_LINK_DYLIBS_SUFFIX = "";
+				SFML_LINK_FRAMEWORKS_PREFIX = "-framework";
+				SFML_LINK_FRAMEWORKS_SUFFIX = "";
+				SFML_LINK_PREFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_PREFIX)";
+				SFML_LINK_SUFFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_SUFFIX)";
+				SFML_NETWORK = "$(SFML_LINK_PREFIX) sfml-network$(SFML_LINK_SUFFIX)";
+				SFML_SYSTEM = "$(SFML_LINK_PREFIX) sfml-system$(SFML_LINK_SUFFIX)";
+				SFML_WINDOW = "$(SFML_LINK_PREFIX) sfml-window$(SFML_LINK_SUFFIX)";
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Release;
+		};
+		D55C59391BAA1BA80027D5F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D55C593A1BAA1BA80027D5F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D55C59281BAA1BA80027D5F2 /* Build configuration list for PBXProject "FractalFlames" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D55C59361BAA1BA80027D5F2 /* Debug */,
+				D55C59371BAA1BA80027D5F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D55C59381BAA1BA80027D5F2 /* Build configuration list for PBXNativeTarget "FractalFlames" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D55C59391BAA1BA80027D5F2 /* Debug */,
+				D55C593A1BAA1BA80027D5F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D55C59251BAA1BA80027D5F2 /* Project object */;
+}
