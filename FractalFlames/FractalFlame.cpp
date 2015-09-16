@@ -8,6 +8,7 @@
 
 #include "FractalFlame.hpp"
 
+#include <algorithm>
 #include <random>
 #include <fstream>
 
@@ -15,8 +16,11 @@
 #define LETTER_A_ASCII_OFFSET 97
 
 #define NULLPTR_CHECK(ptr)\
-if (ptr == nullptr)\
+if ((ptr) == nullptr)\
     return false;
+
+#define B_UNIT_SQUARE_CHECK(x, y)\
+((!std::min(0.0, (x)) && (std::max((x), 1.0) == 1)) && (!std::min(0.0, (y)) && (std::max((y), 1.0) == 1)))
 
 FractalFlame::FractalFlame(unsigned outWidth, unsigned outHeight)
 {
@@ -151,7 +155,7 @@ unsigned FractalFlame::getColorsCount()
 FractalFlame::Point FractalFlame::applyFunctionToPoint(unsigned functionNumber, Point * point)
 {
     Point result;
-    if (point == nullptr || functionNumber >= basisSize)
+    if (point == nullptr || functionNumber >= basisSize || !B_UNIT_SQUARE_CHECK(point->x, point->y))
     {
         result.x = NAN;
         result.y = NAN;
