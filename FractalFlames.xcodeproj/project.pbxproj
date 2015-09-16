@@ -8,15 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		D55C59301BAA1BA80027D5F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D55C592F1BAA1BA80027D5F2 /* main.cpp */; };
+		D55C593E1BAA1D090027D5F2 /* FractalFlame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D55C593B1BAA1D090027D5F2 /* FractalFlame.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D55C592C1BAA1BA80027D5F2 /* FractalFlames */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FractalFlames; sourceTree = BUILT_PRODUCTS_DIR; };
 		D55C592F1BAA1BA80027D5F2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		D55C59321BAA1BA80027D5F2 /* cute_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cute_image.jpg; sourceTree = "<group>"; };
-		D55C59331BAA1BA80027D5F2 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
-		D55C59341BAA1BA80027D5F2 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
-		D55C59351BAA1BA80027D5F2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		D55C593B1BAA1D090027D5F2 /* FractalFlame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FractalFlame.cpp; sourceTree = "<group>"; };
+		D55C593D1BAA1D090027D5F2 /* FractalFlame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FractalFlame.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,20 +49,10 @@
 			isa = PBXGroup;
 			children = (
 				D55C592F1BAA1BA80027D5F2 /* main.cpp */,
-				D55C59311BAA1BA80027D5F2 /* Resources */,
+				D55C593B1BAA1D090027D5F2 /* FractalFlame.cpp */,
+				D55C593D1BAA1D090027D5F2 /* FractalFlame.hpp */,
 			);
 			path = FractalFlames;
-			sourceTree = "<group>";
-		};
-		D55C59311BAA1BA80027D5F2 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				D55C59321BAA1BA80027D5F2 /* cute_image.jpg */,
-				D55C59331BAA1BA80027D5F2 /* nice_music.ogg */,
-				D55C59341BAA1BA80027D5F2 /* sansation.ttf */,
-				D55C59351BAA1BA80027D5F2 /* icon.png */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,6 +111,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D55C59301BAA1BA80027D5F2 /* main.cpp in Sources */,
+				D55C593E1BAA1D090027D5F2 /* FractalFlame.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
