@@ -193,14 +193,16 @@ Point FractalFlameBuilder::applyFunctionToPoint(unsigned functionNumber, const P
     {
         return result;
     }
-    result = Variations::V2(point);
-//    result.x = getCoefficient(functionNumber, AXIS_X, NAME_A) * point->x +
-//               getCoefficient(functionNumber, AXIS_X, NAME_B) * point->y +
-//               getCoefficient(functionNumber, AXIS_X, NAME_C);
     
-//    result.y = getCoefficient(functionNumber, AXIS_Y, NAME_A) * point->x +
-//               getCoefficient(functionNumber, AXIS_Y, NAME_B) * point->y +
-//               getCoefficient(functionNumber, AXIS_Y, NAME_C);
+    result.x = getCoefficient(functionNumber, AXIS_X, NAME_A) * point.x +
+               getCoefficient(functionNumber, AXIS_X, NAME_B) * point.y +
+               getCoefficient(functionNumber, AXIS_X, NAME_C);
+    
+    result.y = getCoefficient(functionNumber, AXIS_Y, NAME_A) * point.x +
+               getCoefficient(functionNumber, AXIS_Y, NAME_B) * point.y +
+               getCoefficient(functionNumber, AXIS_Y, NAME_C);
+    
+    result = Variations::V7(result);
     
     return result;
 }
