@@ -8,6 +8,8 @@
 
 #include "FractalFlame.hpp"
 
+using namespace FractalFlame;
+
 #include <algorithm>
 #include <random>
 #include <fstream>
@@ -20,26 +22,37 @@ if ((ptr) == nullptr)\
     return false;
 
 #define B_UNIT_SQUARE_CHECK(x, y)\
-((!std::min(0.0, (x)) && (std::max((x), 1.0) == 1)) && (!std::min(0.0, (y)) && (std::max((y), 1.0) == 1)))
+(((std::min(-1.0, (x)) == -1.0) && (std::max((x), 1.0) == 1)) && (((std::min(-1.0, (y)) == -1.0) && (std::max((y), 1.0) == 1))))
 
-FractalFlame::FractalFlame(unsigned outWidth, unsigned outHeight)
+FractalFlameBuilder::FractalFlameBuilder(unsigned outWidth, unsigned outHeight)
 {
-    setOutputResolution(outputWidth, outputHeight);
+    colors = nullptr;
+    coef = nullptr;
+    
+    basisSize = colorsLength = 0;
+    
+    setOutputResolution(outWidth, outHeight);
 }
 
-FractalFlame::~FractalFlame()
+FractalFlameBuilder::~FractalFlameBuilder()
 {
-    delete [] colors;
+    if (colors != nullptr)
+        delete [] colors;
     colorsLength = 0;
     
-    for (unsigned i = 0; i < basisSize; delete [] coef[i]);
-    delete [] coef;
+    for (unsigned i = 0; (i < basisSize) && (coef != nullptr); ++i)
+        if (coef[i] != nullptr)
+            delete [] coef[i];
+    
+    if (coef != nullptr);
+        delete [] coef;
+    
     basisSize = 0;
     
     outputHeight = outputWidth = 0;
 }
 
-bool FractalFlame::setCoeficients(const double ** coef, unsigned count)
+bool FractalFlameBuilder::setCoeficients(const double ** coef, unsigned count)
 {
     NULLPTR_CHECK(coef);
     
@@ -59,19 +72,22 @@ bool FractalFlame::setCoeficients(const double ** coef, unsigned count)
     return true;
 }
 
-bool FractalFlame::setCoeficients(const char * pathToFile)
+bool FractalFlameBuilder::setCoeficients(const char * pathToFile)
 {
     std::ifstream inputFile(pathToFile);
     if (!inputFile.good() || !inputFile.is_open())
         return false;
     
+    inputFile >> basisSize;
+    
+    coef = new double * [basisSize];
     NULLPTR_CHECK(coef);
     
-    inputFile >> basisSize;
     for (unsigned i = 0; i < basisSize; ++i)
     {
+        coef[i] = new double[COEFS_IN_ROW];
         NULLPTR_CHECK(coef[i]);
-        for (unsigned j = 0; (j < COEFS_IN_ROW); ++i)
+        for (unsigned j = 0; j < COEFS_IN_ROW; ++j)
         {
             if (!inputFile.good())
                 return false;
@@ -81,7 +97,7 @@ bool FractalFlame::setCoeficients(const char * pathToFile)
     return true;
 }
 
-double FractalFlame::getCoefficient(unsigned functionNumber, Axes axis, CoefNames name)
+double FractalFlameBuilder::getCoefficient(unsigned functionNumber, Axes axis, CoefNames name)
 {
     if (functionNumber >= basisSize)
         return NAN;
@@ -94,7 +110,12 @@ double FractalFlame::getCoefficient(unsigned functionNumber, Axes axis, CoefName
     return coef[functionNumber][coefIndex];
 }
 
-bool FractalFlame::setOutputResolution(unsigned x, unsigned y)
+unsigned FractalFlameBuilder::getBasisSize()
+{
+    return basisSize;
+}
+
+bool FractalFlameBuilder::setOutputResolution(unsigned x, unsigned y)
 {
     outputWidth = x;
     outputHeight = y;
@@ -102,7 +123,7 @@ bool FractalFlame::setOutputResolution(unsigned x, unsigned y)
     return true;
 }
 
-bool FractalFlame::getOutputResolution(unsigned &x, unsigned &y)
+bool FractalFlameBuilder::getOutputResolution(unsigned &x, unsigned &y)
 {
     x = outputWidth;
     y = outputHeight;
@@ -110,7 +131,7 @@ bool FractalFlame::getOutputResolution(unsigned &x, unsigned &y)
     return true;
 }
 
-bool FractalFlame::setColors(const unsigned * colors, unsigned colorsCount)
+bool FractalFlameBuilder::setColors(const unsigned * colors, unsigned colorsCount)
 {
     NULLPTR_CHECK(colors);
     
@@ -124,7 +145,7 @@ bool FractalFlame::setColors(const unsigned * colors, unsigned colorsCount)
     return true;
 }
 
-bool FractalFlame::setColors(const char * pathToFile)
+bool FractalFlameBuilder::setColors(const char * pathToFile)
 {
     std::ifstream inputFile(pathToFile);
     if (!inputFile.good() || !inputFile.is_open())
@@ -142,24 +163,22 @@ bool FractalFlame::setColors(const char * pathToFile)
     return true;
 }
 
-unsigned * FractalFlame::getColors()
+unsigned * FractalFlameBuilder::getColors()
 {
     return colors;
 }
 
-unsigned FractalFlame::getColorsCount()
+unsigned FractalFlameBuilder::getColorsCount()
 {
     return colorsLength;
 }
 
-FractalFlame::Point FractalFlame::applyFunctionToPoint(unsigned functionNumber, Point * point)
+Point FractalFlameBuilder::applyFunctionToPoint(unsigned functionNumber, const Point * point)
 {
     Point result;
     if (point == nullptr || functionNumber >= basisSize || !B_UNIT_SQUARE_CHECK(point->x, point->y))
     {
-        result.x = NAN;
-        result.y = NAN;
-        
+        result.x = result.y = NAN;
         return result;
     }
     
@@ -167,9 +186,24 @@ FractalFlame::Point FractalFlame::applyFunctionToPoint(unsigned functionNumber, 
                getCoefficient(functionNumber, AXIS_X, NAME_B) * point->y +
                getCoefficient(functionNumber, AXIS_X, NAME_C);
     
-    result.x = getCoefficient(functionNumber, AXIS_Y, NAME_A) * point->x +
+    result.y = getCoefficient(functionNumber, AXIS_Y, NAME_A) * point->x +
                getCoefficient(functionNumber, AXIS_Y, NAME_B) * point->y +
                getCoefficient(functionNumber, AXIS_Y, NAME_C);
     
+    return result;
+}
+
+Point FractalFlameBuilder::biUnitPointToScreenPoint(const Point * point)
+{
+    Point result;
+    if (point == nullptr || !B_UNIT_SQUARE_CHECK(point->x, point->y))
+    {
+        result.x = result.y = NAN;
+        return result;
+    }
+    
+    result.x = (point->x + 1) * outputWidth / 2;
+    result.y = (point->y + 1) * outputHeight / 2;
+
     return result;
 }
