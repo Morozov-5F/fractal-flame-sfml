@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D55C59301BAA1BA80027D5F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D55C592F1BAA1BA80027D5F2 /* main.cpp */; };
 		D55C593E1BAA1D090027D5F2 /* FractalFlame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D55C593B1BAA1D090027D5F2 /* FractalFlame.cpp */; settings = {ASSET_TAGS = (); }; };
+		D55C59421BAA3E9D0027D5F2 /* Variations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D55C59411BAA3E9D0027D5F2 /* Variations.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +19,7 @@
 		D55C593D1BAA1D090027D5F2 /* FractalFlame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FractalFlame.hpp; sourceTree = "<group>"; };
 		D55C593F1BAA32FB0027D5F2 /* Coefs_Serpinsky */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Coefs_Serpinsky; sourceTree = "<group>"; };
 		D55C59401BAA35550027D5F2 /* serpinsky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = serpinsky.png; sourceTree = "<group>"; };
+		D55C59411BAA3E9D0027D5F2 /* Variations.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Variations.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 				D55C593B1BAA1D090027D5F2 /* FractalFlame.cpp */,
 				D55C593D1BAA1D090027D5F2 /* FractalFlame.hpp */,
 				D55C593F1BAA32FB0027D5F2 /* Coefs_Serpinsky */,
+				D55C59411BAA3E9D0027D5F2 /* Variations.cpp */,
 			);
 			path = FractalFlames;
 			sourceTree = "<group>";
@@ -116,6 +119,7 @@
 			files = (
 				D55C59301BAA1BA80027D5F2 /* main.cpp in Sources */,
 				D55C593E1BAA1D090027D5F2 /* FractalFlame.cpp in Sources */,
+				D55C59421BAA3E9D0027D5F2 /* Variations.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

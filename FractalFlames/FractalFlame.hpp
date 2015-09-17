@@ -21,8 +21,16 @@ namespace FractalFlame
     {
         double x;
         double y;
+
+        explicit Point(double x, double y) : x (x), y(y)
+        {
+        }
+        
+        const Point operator + (const Point &right)
+        {
+            return Point(x + right.x, y + right.y);
+        }
     };
-    
     class FractalFlameBuilder
     {
         unsigned outputWidth, outputHeight;
@@ -48,8 +56,16 @@ namespace FractalFlame
         unsigned * getColors();
         unsigned getColorsCount();
         
-        Point applyFunctionToPoint(unsigned functionNumber, const Point * point);
-        Point biUnitPointToScreenPoint(const Point * point);
+        Point applyFunctionToPoint(unsigned functionNumber, const Point & point);
+        Point biUnitPointToScreenPoint(const Point & point);
+    };
+    
+    class Variations
+    {
+    public:
+        static Point V1(const Point & point);
+        static Point V2(const Point & point);
+        static Point V7(const Point & point);
     };
 }
 

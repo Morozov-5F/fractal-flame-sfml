@@ -34,7 +34,7 @@ int main(int argc, char const** argv)
     if (!ffBuilder.setCoeficients("Coefs_Serpinsky"))
         return EXIT_FAILURE;
     
-    Point point;
+    Point point(0, 0);
     point.x = realDistribution(generator);
     point.y = realDistribution(generator);
     
@@ -42,12 +42,12 @@ int main(int argc, char const** argv)
     for (unsigned i = 0; i < MAX_ITERATIONS; ++i)
     {
         unsigned k = intDistribution(generator);
-        point = ffBuilder.applyFunctionToPoint(k, &point);
+        point = ffBuilder.applyFunctionToPoint(k, point);
         
         if (i < 20)
             continue;
         
-        Point intPoint = ffBuilder.biUnitPointToScreenPoint(&point);
+        Point intPoint = ffBuilder.biUnitPointToScreenPoint(point);
         canvas.setPixel((unsigned)intPoint.x, (unsigned)intPoint.y, Color::White);
     }
     std::cout << "Finished fractal flame building" << std::endl;

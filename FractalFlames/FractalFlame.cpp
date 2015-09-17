@@ -24,6 +24,19 @@ if ((ptr) == nullptr)\
 #define B_UNIT_SQUARE_CHECK(x, y)\
 (((std::min(-1.0, (x)) == -1.0) && (std::max((x), 1.0) == 1)) && (((std::min(-1.0, (y)) == -1.0) && (std::max((y), 1.0) == 1))))
 
+Point & operator += (Point &left, const Point &right)
+{
+    left.x += right.x;
+    left.y += right.y;
+    
+    return left;
+}
+
+const Point operator + (const Point &left, const Point &right)
+{
+    return Point(left.x + right.x, left.y + right.y);
+}
+
 FractalFlameBuilder::FractalFlameBuilder(unsigned outWidth, unsigned outHeight)
 {
     colors = nullptr;
@@ -173,37 +186,36 @@ unsigned FractalFlameBuilder::getColorsCount()
     return colorsLength;
 }
 
-Point FractalFlameBuilder::applyFunctionToPoint(unsigned functionNumber, const Point * point)
+Point FractalFlameBuilder::applyFunctionToPoint(unsigned functionNumber, const Point & point)
 {
-    Point result;
-    if (point == nullptr || functionNumber >= basisSize || !B_UNIT_SQUARE_CHECK(point->x, point->y))
+    Point result(0, 0);
+    if (functionNumber >= basisSize || !B_UNIT_SQUARE_CHECK(point.x, point.y))
     {
-        result.x = result.y = NAN;
         return result;
     }
+    result = Variations::V2(point);
+//    result.x = getCoefficient(functionNumber, AXIS_X, NAME_A) * point->x +
+//               getCoefficient(functionNumber, AXIS_X, NAME_B) * point->y +
+//               getCoefficient(functionNumber, AXIS_X, NAME_C);
     
-    result.x = getCoefficient(functionNumber, AXIS_X, NAME_A) * point->x +
-               getCoefficient(functionNumber, AXIS_X, NAME_B) * point->y +
-               getCoefficient(functionNumber, AXIS_X, NAME_C);
-    
-    result.y = getCoefficient(functionNumber, AXIS_Y, NAME_A) * point->x +
-               getCoefficient(functionNumber, AXIS_Y, NAME_B) * point->y +
-               getCoefficient(functionNumber, AXIS_Y, NAME_C);
+//    result.y = getCoefficient(functionNumber, AXIS_Y, NAME_A) * point->x +
+//               getCoefficient(functionNumber, AXIS_Y, NAME_B) * point->y +
+//               getCoefficient(functionNumber, AXIS_Y, NAME_C);
     
     return result;
 }
 
-Point FractalFlameBuilder::biUnitPointToScreenPoint(const Point * point)
+Point FractalFlameBuilder::biUnitPointToScreenPoint(const Point & point)
 {
-    Point result;
-    if (point == nullptr || !B_UNIT_SQUARE_CHECK(point->x, point->y))
+    Point result(0, 0);
+    if (!B_UNIT_SQUARE_CHECK(point.x, point.y))
     {
         result.x = result.y = NAN;
         return result;
     }
     
-    result.x = (point->x + 1) * outputWidth / 2;
-    result.y = (point->y + 1) * outputHeight / 2;
+    result.x = (point.x + 1) * outputWidth / 2;
+    result.y = (point.y + 1) * outputHeight / 2;
 
     return result;
 }
